@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">نطاق | Nitaq</string>
+
+    <string-array name="companies_array">
+        <item>شركة أرامكو السعودية</item>
+        <item>شركة الاتصالات السعودية (STC)</item>
+        <item>مصرف الراجحي</item>
+        <item>شركة سابك (SABIC)</item>
+        <item>شركة المراعي</item>
+    </string-array>
+</resources>

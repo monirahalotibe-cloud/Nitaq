@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/nitaq_bg"
+    android:layoutDirection="rtl">
+
+    <!-- الشريط العلوي لمعلومات الموظف وتبديل اللغة -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/nitaq_navy"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvWelcomeUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="مرحباً بك"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvSelectedCompany"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="جهة العمل: لم يتم التحديد"
+                android:textColor="#D0D0D0"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnLangToggle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="EN"
+            android:textSize="12sp"
+            android:backgroundTint="#33FFFFFF"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <!-- واجهة الخريطة والنطاق الجغرافي -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:background="#EAEFEF">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="🗺️ خريطة النطاق الجغرافي المباشر"
+            android:textColor="#A0A0A0"
+            android:textSize="13sp"
+            android:textStyle="italic" />
+
+        <View
+            android:id="@+id/geofenceCircle"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/geofence_circle_shape" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvPinLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/nitaq_navy"
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="2dp"
+                android:text="مقر الشركة"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📍"
+                android:textSize="26sp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!-- لوحة التحكم والتوقيت وسجل الحضور -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- عرض وقت ووقت الحضور اللحظي -->
+            <TextView
+                android:id="@+id/tvTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="الوقت الحالي: --:-- --"
+                android:textColor="@color/nitaq_navy"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="8dp"
+                android:gravity="center"
+                android:text="اضغط لتأكيد الحضور بالبصمة الحيوية داخل النطاق"
+                android:textColor="#666666"
+                android:textSize="12sp" />
+
+            <!-- أزرار الحضور والانصراف -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnCheckIn"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="4dp"
+                    android:backgroundTint="@color/nitaq_green"
+                    android:text="تسجيل الحضور"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnCheckOut"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="4dp"
+                    android:backgroundTint="#D32F2F"
+                    android:enabled="false"
+                    android:text="تسجيل الانصراف"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginVertical="12dp"
+                android:background="#E0E0E0" />
+
+            <!-- كرت إحصائيات الحضور والغياب الأسبوعي -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📊 سجل الأسبوع الحالي:"
+                android:textColor="@color/nitaq_navy"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <TextView
+                    android:id="@+id/tvPresentDays"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#E8F5E9"
+                    android:padding="8dp"
+                    android:gravity="center"
+                    android:text="أيام الحضور\n4 أيام"
+                    android:textColor="#2E7D32"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvAbsentDays"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="4dp"
+                    android:background="#FFEBEE"
+                    android:padding="8dp"
+                    android:gravity="center"
+                    android:text="أيام الغياب\n1 يوم"
+                    android:textColor="#C62828"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvCheckInTimeRecord"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="4dp"
+                    android:background="#E3F2FD"
+                    android:padding="8dp"
+                    android:gravity="center"
+                    android:text="آخر تسجيل\nلم يسجل"
+                    android:textColor="#1565C0"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:orientation="vertical">
+
+                <!-- أزرار الخدمات المتقدمة -->
+                <Button
+                    android:id="@+id/btnLeaveRequest"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#0288D1"
+                    android:text="🏖️ تقديم طلب إجازة / استئذان"
+                    android:textColor="@color/white" />
+
+                <Button
+                    android:id="@+id/btnExportPdf"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:backgroundTint="#388E3C"
+                    android:text="📄 تصدير تقرير الحضور (PDF)"
+                    android:textColor="@color/white" />
+
+                <Button
+                    android:id="@+id/btnManagerDashboard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:backgroundTint="@color/nitaq_navy"
+                    android:text="👨‍💼 لوحة تحكم المدير"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

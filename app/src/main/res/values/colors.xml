@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- ألوان هوية تطبيق نطاق Nitaq -->
+    <color name="nitaq_navy">#1E2B4A</color>
+    <color name="nitaq_green">#2A9D7C</color>
+    <color name="nitaq_bg">#F5F7FA</color>
+</resources>
